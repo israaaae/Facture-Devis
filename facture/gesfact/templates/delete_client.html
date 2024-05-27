@@ -1,0 +1,14 @@
+{% extends 'base1.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4 mb-4" style="color:#0a58ca">Supprimer un client</h1>
+
+    <p>Voulez-vous vraiment supprimer ce client ?</p>
+
+    <form method="POST" action="{% url 'delete_client' client_id=client.id %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+      <a href="{% url 'clients_list' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+  </div>
+{% endblock %}

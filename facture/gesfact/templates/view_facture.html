@@ -1,0 +1,109 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un client</title>
+    <!-- Inclure les liens vers les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <h1 style="color:#0a58ca">Visualiser une facture</h1>
+    <form method="post">
+          {% csrf_token %}
+          <h3 style="color: #007bff;">Informations </h3>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="{{ form.numero_facture.id_for_label }}"><strong>N° facture : </strong></label>
+                  <input type="text" class="form-control" id="id_numero_facture" value="{{ facture.numero_facture }}" readonly>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="id_client"><strong>Client :</strong></label>
+                <input type="text" class="form-control" id="id_client" value="{{ facture.client }}" readonly>
+            </div>
+
+        <div class="form-group col-md-6">
+            <label for="id_serie"><strong>Série :</strong></label>
+            <input type="text" class="form-control" id="id_serie" value="{{ facture.serie }}" readonly>
+        </div>
+    </div>
+              <h3 style="color: #007bff;">Détails de livraison </h3>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="id_date_emission"><strong>Date de livraison :</strong></label>
+                    <input type="text" class="form-control" id="id_date_emission" value="{{ facture.date_emission }}" readonly>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="id_frais_liv"><strong>Frais de livraison : </strong></label>
+                    <input type="text" class="form-control" id="id_frais_liv" value="{{ facture.frais_liv }}" readonly>
+                </div>
+
+
+                <div class="form-group col-md-6">
+                    <label for="{{ form.adresseemission.id_for_label }}"><strong>Adresse de livraison : </strong></label>
+                    <textarea class="form-control" id="{{ form.adresseemission.id_for_label }}" name="{{ form.adresseemission.name }}" readonly>{{ facture.adresseemission }}</textarea>
+                </div>                
+
+              </div>
+              <h3 style="color: #007bff;">Détails de paiement </h3>
+              <div class="form-group">
+                <table class="table mt-3">
+
+                    <tr>
+                      <th>Article</th>
+                      <th>Quantité</th>
+                      <th>Remise</th>
+                      <th>Montant Prépayé</th>
+                      <th>Statut</th>
+                      <th>Montant restant</th>
+                      <th>Total</th>
+                    </tr>
+                  <tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.article.nom }}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.quantite }}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.remise }}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.montant_paye }}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.get_statut_display }}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.rest }}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="{{ facture.Total }}" readonly>
+                        </td>
+                    </tr>
+                    
+              </table>
+              </div>            
+
+
+
+
+              <form method="POST">
+                {% csrf_token %}                
+                <button type="submit" name="update" class="btn btn-success">Mettre à jour</button>
+                <button type="submit" name="delete" class="btn btn-danger">Supprimer</button>
+            </form>            
+        </form>
+
+    </div>
+    
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base1.html' %}
+{% block content %}
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Liste des Articles</title>
+              <!-- Ajoutez le lien vers le fichier CSS de Bootstrap -->
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            
+            </head>
+            
+          <body>
+            <div class="container">
+                <h1 class="mt-5" style="color:#0a58ca">Liste des Articles</h1>
+                <form method="GET" action="" class="form-inline mb-3">
+                  <div class="input-group">
+                      <input type="text" class="form-control" id="search_id" name="search_id" value="{{ request.GET.search_id }}" placeholder="Rechercher par reference">
+                      <P> &#160; &#160;</P>
+                      <div class="input-group-append">
+                          <button class="btn btn-primary" type="submit">Rechercher</button>
+                      </div>
+                  </div>
+              </form>
+              
+              
+          
+                <!-- Afficher la liste des clients sous forme de tableau -->
+                <table class="table mt-3">
+                  <tr>
+                    <th>Réference</th>
+                      <th>Nom</th>
+                      <th>Prix unitaire</th>
+                      <th>Description</th>
+                      <th>Actions</th>
+                  </tr>
+                  {% for article in articles %}
+                  <tr>
+                    <td>{{ article.reference }}</td>
+                      <td>{{ article.nom }}</td>
+                      <td>{{ article.cout_unitaire }}</td>
+                      <td>{{ article.description }}</td>
+                      <td>
+                         
+                          <a href="{% url 'update_article' article.id %}">
+                            <i class="fas fa-edit" style="color: green;"></i>
+                          </a>
+                          <a href="{% url 'delete_article' article.id %}">
+                            <i class="fas fa-trash" style="color: red;"></i>
+                          </a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </table>   
+               <a href="{% url 'create_article' %}" class="btn btn-primary">+ Nouvelle article</a>
+          
+                      <!-- Formulaire pour créer un nouveau article -->
+          
+                  </div>
+                  <!-- Ajoutez le lien vers le fichier JavaScript de Bootstrap (facultatif, mais recommandé) -->
+          
+                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+                  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          </body>
+          </html>
+{% endblock %}

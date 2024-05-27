@@ -1,0 +1,92 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<div class="container mt-3">
+  <h1 style="color:#0a58ca">Modifier une facture</h1>
+  <form method="post">
+        {% csrf_token %}
+        <h3 style="color: #007bff;">Informations </h3>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="{{ form.numero_facture.id_for_label }}"><strong>N° facture : </strong></label>
+                <input type="text" class="form-control" id="{{ form.numero_facture.id_for_label }}" name="{{ form.numero_facture.name }}" value="{{ facture.numero_facture }}">
+            </div>
+
+            <div class="form-group col-md-6">
+               <label for="{{ form.facture.id_for_label }}"><strong>Client : </strong></label>
+              <select class="form-control" id="{{ form.facture.id_for_label }}" name="{{ form.facture.name }}">
+                {% for client in form.client.field.queryset %}
+                <option value="{{ client.id }}">{{ facture.client.nom }}</option>
+                {% endfor %}
+              </select>            
+            </div>
+
+            <div class="form-group col-md-6">
+               <label for="{{ form.serie.id_for_label }}"><strong>Serie : </strong></label>
+              <input type="tel" class="form-control" id="{{ form.serie.id_for_label }}" name="{{ form.serie.name }}" value="{{ facture.serie }}">
+            </div>
+          </div>
+
+            <h3 style="color: #007bff;">Détails de livraison </h3>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+               <label for="{{ form.date_emission.id_for_label }}"><strong>Date d'émission : </strong></label>
+              <input type="text" class="form-control" id="{{ form.date_emission.id_for_label }}" name="{{ form.date_emission.name }}" value="{{ facture.date_emission }}">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.frais_liv.id_for_label }}"><strong>Frais de livraison : </strong></label>
+              <input type="text" class="form-control" id="{{ form.frais_liv.id_for_label }}" name="{{ form.frais_liv.name }}" value="{{ facture.frais_liv }}">
+            </div>
+
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.adresseemission.id_for_label }}"><strong>Adresse d'émission :</strong></label>
+              <textarea class="form-control" id="{{ form.adresseemission.id_for_label }}" name="{{ form.adresseemission.name }}">{{ facture.adresseemission }}</textarea>
+          </div>
+          
+
+            </div>
+            <h3 style="color: #007bff;">Détails de paiement </h3>
+            <div class="form-group">
+              <table class="table mt-3">
+
+                  <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Remise</th>
+                    <th>Montant Payé</th>
+                    <th>Statut</th>
+                  </tr>
+                <tr>
+                  <td>                
+                    <select class="form-control" id="{{ form.article.id_for_label }}" name="{{ form.article.name }}">
+                    {% for article in form.article.field.queryset %}
+                        <option value="{{ article.id }}">{{ facture.article.nom }}</option>
+                    {% endfor %}
+                  </select>    
+                  </td>
+                  <td>              
+                    <input type="text" class="form-control" id="{{ form.quantite.id_for_label }}" name="{{ form.quantite.name }}" value="{{ facture.quantite }}">
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" id="{{ form.remise.id_for_label }}" name="{{ form.remise.name }}" value="{{ facture.remise }}">
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" id="{{ form.montant_paye.id_for_label }}" name="{{ form.montant_paye.name }}" value="{{ facture.montant_paye }}">
+                  </td>
+                  <td>
+                    <select class="form-control" id="{{ form.statut.id_for_label }}" name="{{ form.statut.name }}">
+                      {% for choice in form.statut.field.choices %}
+                          <option value="{{ choice.0 }}">{{ facture.statut }}</option>
+                      {% endfor %}
+                  </select>                 
+                </td>
+                </tr>
+            </table>
+            </div>            
+        <button type="submit" class="btn btn-primary">Importer les modifications</button>
+    </form>
+  </div>
+{% endblock %}
+

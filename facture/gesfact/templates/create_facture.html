@@ -1,0 +1,117 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un client</title>
+    <!-- Inclure les liens vers les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <h1 style="color:#0a58ca">Ajouter une facture</h1>
+    <form method="post">
+          {% csrf_token %}
+          <h3 style="color: #007bff;">Informations </h3>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="{{ form.numero_facture.id_for_label }}"><strong>N° facture : </strong></label>
+                  <input type="text" class="form-control" id="{{ form.numero_facture.id_for_label }}" name="{{ form.numero_facture.name }}" placeholder="Entrez le N° facture">
+              </div>
+
+              
+              <div class="form-group col-md-6">
+                 <label for="{{ form.client.id_for_label }}"><strong>Client : </strong></label>
+                <select class="form-control" id="{{ form.client.id_for_label }}" name="{{ form.client.name }}">
+                  <option value="">Sélectionnez une client</option>
+                  {% for client in form.client.field.queryset %}
+                      <option value="{{ client.id }}">{{ client }}</option>
+                  {% endfor %}
+                </select>            
+              </div>
+
+              <div class="form-group col-md-6">
+                 <label for="{{ form.serie.id_for_label }}"><strong>Serie : </strong></label>
+                <input type="tel" class="form-control" id="{{ form.serie.id_for_label }}" name="{{ form.serie.name }}" placeholder="Entrez la serie">
+              </div>
+            </div>
+
+              <h3 style="color: #007bff;">Détails de livraison </h3>
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                 <label for="{{ form.date_emission.id_for_label }}"><strong>Date d'émission : </strong></label>
+                <input type="text" class="form-control" id="{{ form.date_emission.id_for_label }}" name="{{ form.date_emission.name }}" placeholder="Entrez la date d'émission">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="{{ form.frais_liv.id_for_label }}"><strong>Frais de livraison : </strong></label>
+                <input type="text" class="form-control" id="{{ form.frais_liv.id_for_label }}" name="{{ form.frais_liv.name }}" placeholder="Entrez les frais de livraison">
+              </div>
+
+
+              <div class="form-group col-md-6">
+                <label for="{{ form.adresseemission.id_for_label }}"><strong>Adresse d'emission : </strong></label>
+                <textarea class="form-control" id="{{ form.adresseemission.id_for_label }}" name="{{ form.adresseemission.name }}" placeholder="Entrez votre adresse"></textarea>
+              </div>
+
+              </div>
+              <h3 style="color: #007bff;">Détails de paiement </h3>
+              <div class="form-group">
+                <table class="table mt-3">
+
+                    <tr>
+                      <th>Article</th>
+                      <th>Quantité</th>
+                      <th>Remise</th>
+                      <th>Montant Payé</th>
+                      <th>Statut</th>
+                    </tr>
+                  <tr>
+                    <td>                
+                      <select class="form-control" id="{{ form.article.id_for_label }}" name="{{ form.article.name }}">
+                      <option value="">Sélectionnez une article</option>
+                      {% for article in form.article.field.queryset %}
+                          <option value="{{ article.id }}">{{ article }}</option>
+                      {% endfor %}
+                    </select>    
+                    </td>
+                    <td>              
+                      <input type="text" class="form-control" id="{{ form.quantite.id_for_label }}" name="{{ form.quantite.name }}" placeholder="Entrez la quantité">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" id="{{ form.remise.id_for_label }}" name="{{ form.remise.name }}" placeholder="Entrez le pourcentage">
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" id="{{ form.montant_paye.id_for_label }}" name="{{ form.montant_paye.name }}" placeholder="Entrez la somme prépayée">
+                    </td>
+                    <td>
+                      <select class="form-control" id="{{ form.statut.id_for_label }}" name="{{ form.statut.name }}">
+                        <option value="">Sélectionnez le statut</option>
+                        {% for choice in form.statut.field.choices %}
+                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>                 
+                  </td>
+                  </tr>
+              </table>
+              </div>            
+              {% if messages %}
+              <div class="alert alert-danger">
+                  <ul>
+                      {% for message in messages %}
+                      <li>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+              </div>
+              {% endif %}
+              
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </form>
+    </div>
+    
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+{% endblock %}

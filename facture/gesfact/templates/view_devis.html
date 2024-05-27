@@ -1,0 +1,78 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un client</title>
+    <!-- Inclure les liens vers les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5 ml-3">
+        <h1 style="color:#0a58ca">Visualiser un devis</h1>
+  
+
+
+  <form method="post">
+        {% csrf_token %}
+        <h3 style="color: #007bff;">Informations </h3>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="{{ form.numero_devis.id_for_label }}"><strong> N° devis : </strong></label>
+                <input type="text" class="form-control" id="{{ form.numero_devis.id_for_label }}" name="{{ form.numero_devis.name }}" value="{{ devis.numero_devis }}" readonly>
+            </div>
+
+            <div class="form-group col-md-6">
+               <label for="{{ form.devis.id_for_label }}"><strong> Client : </strong></label>
+               <input type="text" class="form-control" value="{{ devis.client.nom }}" readonly>
+             </div>
+
+            <div class="form-group col-md-6">
+               <label for="{{ form.serie.id_for_label }}"><strong>Serie : </strong></label>
+              <input type="tel" class="form-control" value="{{ devis.serie }}" readonly>
+            </div>
+
+          </div>
+
+
+          <h3 style="color: #007bff;">Autres Détails</h3>
+          <div class="form-group">
+            <table class="table mt-3">
+
+                <tr>
+                  <th>Article</th>
+                  <th>Quantité</th>
+                  <th>Remise</th>
+                  <th>Total</th>
+                </tr>
+              <tr>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" value="{{ devis.article.nom }}" readonly>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" value="{{ devis.quantite }}" readonly>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" value="{{ devis.remise }}" readonly>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" value="{{ devis.Tot }}" readonly>
+                    </td>
+                </tr>
+                
+          </table>
+          </div>   
+          
+          
+          
+          <br><br><br><br><br>   
+    </form>
+    <form method="POST">
+        {% csrf_token %}                
+        <button type="submit" name="update" class="btn btn-success">Mettre à jour</button>
+        <button type="submit" name="delete" class="btn btn-danger">Supprimer</button>
+    </form>     
+  </div>
+{% endblock %}
+

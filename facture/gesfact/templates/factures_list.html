@@ -1,0 +1,116 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des Factures</title>
+    <!-- Ajoutez le lien vers le fichier CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      .statut-paye {
+        color: green;
+      }
+    
+      .statut-partiellement-paye {
+        color: orange;
+      }
+    
+      .statut-impaye {
+        color: red;
+      }
+
+      .ma-colonne {
+        width: 30px; /* Remplacez 300px par la largeur souhaitée en pixels */
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5" style="color:#0a58ca">Liste des factures</h1>
+      <form method="GET" action="" class="form-inline mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" id="search_id" name="search_id" value="{{ request.GET.search_id }}" placeholder="Rechercher par numero_facture">
+            <P> &#160; &#160;</P>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Rechercher</button>
+            </div>
+        </div>
+    </form>
+    
+<body>
+  <div class="col-md-20">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>N° Facture</th>
+        <th>Date émission</th>
+        <th>Client</th>
+        <th>Article</th>
+        <th>Quantité</th>
+        <th>Remise</th>
+        <th>Montant prépayé</th>
+        <th>Statut</th>
+        <th>Montant restant</th>
+        <th>Total</th>
+        <th class="ma-colonne" >Actions</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for facture in factures %}
+        <tr>
+          <td>{{ facture.numero_facture }}</td>
+          <td>{{ facture.date_emission }}</td>
+          <td>{{ facture.client }}</td>
+          <td>{{ facture.article }}</td>
+          <td>{{ facture.quantite }}</td>
+          <td>{{ facture.remise }}</td>
+          <td>{{ facture.montant_paye }}</td>
+          <td class="{% if facture.statut == 'paye' %}statut-paye{% elif facture.statut == 'partiellement_paye' %}statut-partiellement-paye{% elif facture.statut == 'impaye' %}statut-impaye{% endif %} {% if facture.statut == 'impaye' %}fond-rouge{% endif %}">
+            {{ facture.get_statut_display }}
+          </td>
+          <td>{{ facture.rest }}</td>
+          <td>{{ facture.Total }}</td>
+            <td>
+            <a href="{% url 'view_facture' facture.id %}">
+              <i class="fas fa-eye" style="color: green;"></i>
+          </a>
+            <a href="{% url 'update_facture' facture.id %}">
+              <i class="fas fa-edit" style="color: blue;"></i>
+            </a>
+            <a href="{% url 'delete_facture' facture.id %}">
+              <i class="fas fa-trash" style="color: red;"></i>
+            </a>
+            <a href="{% url 'generate_pdf' facture.id %}">
+            <i class="fas fa-download" style="color: green;"></i>
+            </a>
+            <a target="_blank" href="{% url 'print_facture' facture.id %}">
+              <i class="fas fa-print" style="color: orange;"></i>
+              </a>
+            
+        </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>    
+   <a href="{% url 'create_facture' %}" class="btn btn-primary">+ Nouvelle facture</a>
+
+  <!-- Formulaire pour créer un nouveau client -->
+</div>
+</div>
+<!-- Ajoutez le lien vers le fichier JavaScript de Bootstrap (facultatif, mais recommandé) -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base1.html' %}
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4 mb-4">Supprimer une devis</h1>
+    <p>Voulez-vous vraiment supprimer cette devis ?</p>
+    <form method="POST" action="{% url 'delete_devis' devis_id=devis.id %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+      <a href="{% url 'devis_list' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+  </div>
+{% endblock %} 

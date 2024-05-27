@@ -1,0 +1,56 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajouter un client</title>
+    <!-- Inclure les liens vers les fichiers CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+      <h1 style="color:#0a58ca">Ajouter un client</h1>
+      <form method="post">
+          {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <strong>{{ form.identifiant.label_tag }}</strong>
+                  <input type="text" class="form-control" id="{{ form.identifiant.id_for_label }}" name="{{ form.identifiant.name }}" placeholder="Entrez l'identifiant du client (ex. : ABC123)">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="{{ form.nom.id_for_label }}"><strong>Nom: </strong></label>
+                <input type="text" class="form-control" id="{{ form.nom.id_for_label }}" name="{{ form.nom.name }}" placeholder="Entrez le nom du client">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="{{ form.telephone.id_for_label }}"><strong>Numéro de téléphone : </strong></label>
+                <input type="tel" class="form-control" id="{{ form.telephone.id_for_label }}" name="{{ form.telephone.name }}" placeholder="Entrez le numéro de téléphone du client">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="{{ form.email.id_for_label }}"><strong>Email : </strong></label>
+                <input type="email" class="form-control" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" placeholder="Entrez l'adresse e-mail du client">
+            </div>
+    
+            <div class="form-group col-md-6">
+              <label for="{{ form.datecreation.id_for_label }}"><strong> date de création : </strong></label>
+              <input type="date" class="form-control" id="{{ form.datecreation.id_for_label }}" name="{{ form.datecreation.name }}" placeholder="Entrez la date de création du client">
+          </div> 
+        </div> 
+
+          <div class="form-group">
+            <label for="{{ form.adressefacturation.id_for_label }}"><strong>Adresse de facturation : </strong></label>
+            <textarea class="form-control" id="{{ form.adressefacturation.id_for_label }}" name="{{ form.adressefacturation.name }}" placeholder="Entrez l'adresse de facturation du client"></textarea>
+          </div> 
+         
+          <button type="submit" class="btn btn-primary">Enregistrer</button></div>
+    </form>
+    
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+
+{% endblock %}
+

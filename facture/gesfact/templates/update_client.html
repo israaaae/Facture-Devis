@@ -1,0 +1,43 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 style="color:#0a58ca">Modifier un client</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form.identifiant.label_tag }}
+                <input type="text" class="form-control" id="{{ form.identifiant.id_for_label }}" name="{{ form.identifiant.name }}" value="{{ client.identifiant }}">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.nom.id_for_label }}">Nom</label>
+              <input type="text" class="form-control" id="{{ form.nom.id_for_label }}" name="{{ form.nom.name }}" value="{{ client.nom }}">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.telephone.id_for_label }}">Numéro de téléphone</label>
+              <input type="tel" class="form-control" id="{{ form.telephone.id_for_label }}" name="{{ form.telephone.name }}" value="{{ client.telephone }}">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.email.id_for_label }}">Email</label>
+              <input type="email" class="form-control" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" value="{{ client.email }}">
+            </div>
+    
+            <div class="form-group col-md-6">
+              <label for="{{ form.datecreation.id_for_label }}">Date de création</label>
+              <input type="date" class="form-control" id="{{ form.datecreation.id_for_label }}" name="{{ form.datecreation.name }}" value="{{ client.datecreation|date:'Y-m-d' }}">
+              </div>
+  </div>
+            <div class="form-group">
+              <label for="{{ form.adressefacturation.id_for_label }}">Adresse de facturation</label>
+              <textarea class="form-control" id="{{ form.adressefacturation.id_for_label }}" name="{{ form.adressefacturation.name }}">{{ client.adressefacturation }}</textarea>
+            </div> 
+               
+
+        <button type="submit" class="btn btn-primary">Importer les modifications</button>
+    </form>
+</div>
+{% endblock %}

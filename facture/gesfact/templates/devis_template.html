@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .invoice {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            color: #2E74B5;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .address {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .invoice-details {
+            margin-left: 500px;
+            margin-top: 50px;
+            font-size: 16px;
+        }
+
+
+        
+        .in-details {
+            margin-left: 400px;
+            margin-top: 50px;
+            font-size: 16px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th {
+            border: 1px solid #ccc;
+            padding: 2px;
+            font-size:14px;
+            text-align: center;
+            background-color: #2E74B5;
+            color: #ffffff;
+
+
+            /* Ajustez cette valeur pour un espacement plus petit si nécessaire */
+        }
+
+
+   
+
+        .table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 13px;
+
+            text-align: center;
+        }
+        .color{
+            color: #2E74B5;
+        }
+
+        .coo{
+            color: #ffffff
+        }
+        .footer {
+            margin-bottom: 1px;
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .sou {
+            margin-right: 100px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+            /* Autres styles pour le corps de la page */
+        }
+        /* Style pour les boutons */
+        .button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        #table-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .horizontal-table {
+            border-collapse: collapse;
+        }
+        
+        .horizontal-table th,.horizontal-table td {
+            border: 1px solid black;
+        }
+        
+        th, td {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="header">
+            <h1>DEVIS</h1>
+        </div>
+        <div class="address">
+         <p ><strong>MYBILL</strong>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<strong>N° de devis : {{ devis.numero_devis }}</strong><br>
+            +212-598550431&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Date : {{ devis.datecreation}}<br>
+            MYBILL2023@gmail.com    <br>
+            https://www.MYBILL.ma</p>
+        </div>
+        <div class="invoice-details">
+            <p><strong>N° {{ devis.client.identifiant }} {{ devis.client.nom }}</strong><br>
+                {{ devis.client.telephone }}<br>
+                {{ devis.client.email }}
+            </p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><strong>Article</strong></th>
+                    <th>Description</th>
+                    <th>Référence</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire HT</th>
+                    <th>Remise</th>
+                    <th>Total HT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Remplacez cette section par les détails de vos produits/services -->
+                <tr>
+                    <td>                {{ devis.article.nom }}                    </td>
+                    <td>                {{ devis.article.description }}
+                    </td>
+                    <td>                {{ devis.article.reference }}</td>
+
+                    <td>                {{ devis.quantite }}
+                    </td>
+                    <td>                {{ devis.article.cout_unitaire}}
+                    </td>
+                    <td>                {{ devis.remise}}
+                    </td>
+                    <td>                {{ devis.Tot }} 
+                    </td>
+                </tr>
+                <!-- Ajoutez autant de lignes que nécessaire -->
+            </tbody>
+
+        </table>
+        
+        <div class="in-details">
+            <p><strong>Montant Total TTC&#160;:</strong>{{ devis.Tot }} MAD<br> 
+            </p>
+        </div></div>
+          <br><br><br><br><br><br>        <div class="invoice"><p>Mode de règlement : Espèces, Chèque ou TPE <br>
+            Conditions de règlement :Paiement à la livraison<br>
+            <p>
+        <p>À la prochaine !</p>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+        <div class="footer">
+            <br>
+         La loi n°92/1442 du 31 décembre 1992 nous fait l’obligation de vous indiquer que le non-respect des conditions de paiement entraine des intérêts de retard suivant modalités et taux défini par la loi. Une indemnité forfaitaire de 40€ sera due pour frais de recouvrement en cas de retard de paiement.
+         </div>
+        
+    
+</body>
+</html>

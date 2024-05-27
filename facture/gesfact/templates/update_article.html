@@ -1,0 +1,35 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 style="color:#0a58ca">Modifier un article</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="{{ form.reference.id_for_label }}">Réference : </label>
+                <input type="text" class="form-control" id="{{ form.reference.id_for_label }}" name="{{ form.reference.name }}" value="{{ article.reference }}">
+              </div>
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.nom.id_for_label }}">Nom :</label>
+              <input type="text" class="form-control" id="{{ form.nom.id_for_label }}" name="{{ form.nom.name }}" value="{{ article.nom }}">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="{{ form.cout_unitaire.id_for_label }}">Prix unitaire : </label>
+              <input type="text" class="form-control" id="{{ form.cout_unitaire.id_for_label }}" name="{{ form.cout_unitaire.name }}" value="{{ article.cout_unitaire }}">
+            </div>
+        </div>         
+
+
+            <div class="form-group ">
+              <label for="{{ form.description.id_for_label }}">Description : </label>
+              <textarea class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.name }}">{{ article.description }}</textarea>
+            </div> 
+
+        <button type="submit" class="btn btn-primary">Importer les modifications</button>
+    </form>
+</div>
+{% endblock %}

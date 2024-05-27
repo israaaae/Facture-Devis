@@ -1,0 +1,60 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<div class="container mt-5 ml-3">
+  <h1 style="color:#0a58ca">Modifier un devis</h1>
+  <form method="post">
+        {% csrf_token %}
+        <h3 style="color: #007bff;">Informations </h3>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="{{ form.numero_devis.id_for_label }}"><strong>N° devis : </strong></label>
+                <input type="text" class="form-control" id="{{ form.numero_devis.id_for_label }}" name="{{ form.numero_devis.name }}" value="{{ devis.numero_devis }}">
+            </div>
+
+            <div class="form-group col-md-6">
+               <label for="{{ form.client.id_for_label }}"><strong>Client : </strong></label>
+
+              <select class="form-control" id="{{ form.client.id_for_label }}" name="{{ form.client.name }}">
+                {% for client in form.client.field.queryset %}
+                    <option value="{{ client.id }}">{{ devis.client.nom }}</option>
+                {% endfor %}
+              </select>            
+            </div>
+
+            <div class="form-group col-md-6">
+               <label for="{{ form.serie.id_for_label }}"><strong>Serie : </strong></label>
+              <input type="tel" class="form-control" id="{{ form.serie.id_for_label }}" name="{{ form.serie.name }}" value="{{ devis.serie }}">
+            </div>
+          </div>
+
+
+            <h3 style="color: #007bff;">Autres Détails</h3>
+            <div class="form-group">
+              <table class="table mt-3">
+                <tr>
+                  <th>Article</th>
+                  <th>Quantité</th>
+                  <th>Remise</th>
+                </tr>
+              <tr>
+                <td>                
+                  <select class="form-control" id="{{ form.article.id_for_label }}" name="{{ form.article.name }}">
+                  {% for article in form.article.field.queryset %}
+                      <option value="{{ article.id }}">{{ devis.article.nom }}</option>
+                  {% endfor %}
+                </select>    
+                </td>
+                <td>              
+                  <input type="text" class="form-control" id="{{ form.quantite.id_for_label }}" name="{{ form.quantite.name }}" value="{{ devis.quantite }}">
+                </td>
+                <td>
+                  <input type="text" class="form-control" id="{{ form.remise.id_for_label }}" name="{{ form.remise.name }}" value="{{ devis.remise }}">
+                </td>
+              </tr>
+          </table>
+            </div>         <br><br><br><br><br>   
+        <button type="submit" class="btn btn-primary">Importer les modifications</button>
+    </form>
+  </div>
+{% endblock %}

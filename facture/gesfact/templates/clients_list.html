@@ -1,0 +1,75 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title >Liste des Clients</title>
+    <!-- Ajoutez le lien vers le fichier CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  </head>
+  
+<body>
+  <div class="container">
+      <h1 class="mt-5" style="color:#0a58ca">Liste des Clients</h1>
+      <form method="GET" action="" class="form-inline mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" id="search_id" name="search_id" value="{{ request.GET.search_id }}" placeholder="Rechercher par identifiant">
+            <input type="text" class="form-control ml-2" id="search_name" name="search_name" value="{{ request.GET.search_name }}" placeholder="Rechercher par nom">
+            <P> &#160; &#160;</P>
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Rechercher</button>
+            </div>
+        </div>
+    </form>
+    
+    
+
+      <!-- Afficher la liste des clients sous forme de tableau -->
+      <table class="table mt-3">
+        <tr>
+            <th>Identifiant</th>
+            <th>Nom</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Date de création</th>
+            <th>Total des factures</th>
+            <th>Actions</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.identifiant }}</td>
+            <td>{{ client.nom }}</td>
+            <td>{{ client.telephone }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.datecreation }}</td>
+            <td>{{ client.total_factures }}</td>
+            <td>
+               
+                <a href="{% url 'update_client' client.id %}">
+                  <i class="fas fa-edit" style="color: green;"></i>
+                </a>
+                <a href="{% url 'delete_client' client.id %}">
+                  <i class="fas fa-trash" style="color: red;"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>   
+     <a href="{% url 'create_client' %}" class="btn btn-primary">+ Nouveau Client</a>
+
+            <!-- Formulaire pour créer un nouveau client -->
+
+        </div>
+        <!-- Ajoutez le lien vers le fichier JavaScript de Bootstrap (facultatif, mais recommandé) -->
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

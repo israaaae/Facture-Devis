@@ -1,0 +1,478 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>Facturation</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/assets/img/favicon.png" rel="icon">
+    <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="static/assets/css/style.css" rel="stylesheet">
+  
+    <!-- =======================================================
+    * Template Name: Arsha
+    * Updated: Jul 27 2023 with Bootstrap v5.3.1
+    * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+  </head>
+  
+  <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
+  
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+  
+        <h1 class="logo me-auto"><a href="index.html">MYBILL</a></h1>
+  
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">A propos</a></li>
+            <li><a class="nav-link scrollto" href="#services">Services</a></li>    
+            <li><a class="nav-link scrollto" href="#pricing">Prix</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
+            <li><a class="getstarted scrollto" href="{% url 'log' %}">Commencer</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+      </div>
+    </header><!-- End Header -->
+
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+              <h1>Gestion de Facturation</h1>
+              <h2>Facilitez la facturation et la gestion financière de votre entreprise, magasin ...</h2>
+              <div class="d-flex justify-content-center justify-content-lg-start">
+                <a href="#about" class="btn-get-started scrollto">Découvrir</a>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+              <img src="static/assets/img/hero-img.png" class="img-fluid animated" alt="">
+            </div>
+          </div>
+        </div>
+      </section><!-- Fin de la section Hero -->
+      
+    <main id="main">
+  
+      <!-- ======= Clients Section ======= -->
+      <section id="clients" class="clients section-bg">
+        <div class="container">
+  
+          <div class="row aos-init aos-animate" data-aos="zoom-in">
+  
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+              <img src="static/assets/img/clients/client-1.png" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+              <img src="static/assets/img/clients/client-2.png" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+              <img src="static/assets/img/clients/client-3.png" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+              <img src="static/assets/img/clients/client-4.png" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+              <img src="static/assets/img/clients/client-5.png" class="img-fluid" alt="">
+            </div>
+  
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+              <img src="static/assets/img/clients/client-6.png" class="img-fluid" alt="">
+            </div>
+
+          </div>
+  
+        </div>
+      </section><!-- End Cliens Section -->
+  
+      <!-- ======= About Us Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>A propos</h2>
+          </div>
+          <div class="row content">
+            <div class="col-lg-6">
+              <p>Nom de l'application :>MYBILL</p>
+              <p>Adresse : Zenith, Casablanca, Morocco</p>
+              <p>Téléphone : +212-514885920</p>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>Chez MYBILL, nous sommes fermement convaincus du pouvoir de la simplicité et de l'efficacité pour favoriser la prospérité des entreprises. Depuis notre fondation, notre engagement a été de fournir des solutions de pointe pour la gestion des factures et des devis, transformant la manière dont les entreprises abordent leurs finances. Notre mission première consiste à alléger le fardeau des entrepreneurs et des entreprises en simplifiant la gestion des facturations et des devis. Nous croyons que chaque minute consacrée à jongler avec des chiffres et des documents administratifs est une minute précieuse qui pourrait être investie dans la croissance de votre entreprise. C'est pourquoi nous avons conçu une plateforme intuitive et intelligente, façonnée pour simplifier chaque étape du processus de manière optimale.
+                </p> 
+               </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- End Why Us Section -->
+  
+      <!-- ======= Skills Section ======= -->
+      <section id="skills" class="skills">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 d-flex align-items-center">
+              <img src="static/assets/img/skills.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Êtes-vous prêt pour profiter?</h3>
+              <p>
+              >MYBILL est une application web innovante de gestion commerciale, créer, envoyer instantanément des factures, bons de commande, en quelques clics depuis une tablette, un smartphone, ou un ordinateur.</p>
+                
+               <P>>MYBILL propose désormais une gamme de fonctionnalités simples mais efficaces pour rendre vos tâches de facturation aussi simples que possible, gérer votre entreprise et consulter sa situation financière où que vous soyez en toute allure et sans risques.</P>
+                
+                <p>>MYBILL se concentre particulièrement sur les entreprises avec leurs problématiques propres : peu d'argent, de temps, sécurité fragile de données...
+                
+                </p>
+              <div class="skills-content">
+                <!-- Vous pouvez ajouter des compétences et des services ici -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Skills Section -->
+  
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Nos Services</h2>
+            <p>Quelques services de gestion de factures offerts par cette application web.</p>
+          </div>
+
+          <div class="row">
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch">
+              <div class="icon-box">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4><a href="">Facturation Automatisée</a></h4>
+                <p>Générez et envoyez automatiquement des factures à vos clients.</p>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="bx bx-file"></i></div>  
+                    <h4><a href="">Devis Professionnels</a></h4>  
+                    <p>Créez des devis professionnels et attrayants en quelques minutes. Gagnez la confiance de vos clients en fournissant des estimations détaillées et précises pour vos produits et services.</p>  
+                </div>    
+               </div>              
+          
+                  <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box">
+                      <div class="icon"><i class="bx bx-tachometer"></i></div>
+                      <h4><a href="">Suivi des Paiements</a></h4>
+                      <p>Notre système de suivi des paiements vous aide à garder une trace des paiements reçus, en attente et en retard. Ayez toujours une vue d'ensemble claire de votre trésorerie.</p>
+                    </div>
+                  </div> 
+
+                  <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-file"></i></div>  
+                        <h4><a href="">Rapports Financiers</a></h4>  
+                        <p>Accédez à des rapports financiers détaillés pour mieux comprendre la santé financière de votre entreprise. Prenez des décisions éclairées basées sur des données concrètes.</p>
+                    </div>    
+                </div>         
+                </div>
+            </div>
+    </section>
+      <!-- End Services Section -->
+  
+      <!-- ======= Cta Section ======= -->
+      <section id="cta" class="cta">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 text-center text-lg-start">
+              <h3>Essayez notre application de gestion de factures</h3>
+              <p>Inscrivez-vous dès aujourd'hui pour simplifier votre processus de facturation.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center">
+              <a class="cta-btn align-middle" href="{% url 'log' %}">Essayez maintenant </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Cta Section -->
+
+      <!-- ======= Pricing Section ======= -->
+      <section id="pricing" class="pricing">
+        <div class="container aos-init" data-aos="fade-up">
+  
+          <div class="section-title" >
+            <h2>Prix</h2>
+            <p>Découvrez nos plans tarifaires flexibles conçus pour répondre à vos besoins en matière de gestion de factures, à partir de seulement 9 $ par mois.</p>
+        </div>
+  
+          <div class="row" >
+  
+            <div class="col-lg-4 aos-init" data-aos="fade-up" data-aos-delay="100">
+              <div class="box">
+                <h3>Plan Basique</h3>
+                <h4><sup>$</sup>9<span>par mois</span></h4>
+                <ul>
+                    <p>Ce plan pourrait être idéal pour les petites entreprises ou les travailleurs indépendants qui ont des besoins de facturation de base. Il peut servir d'introduction à votre service.</p>
+                </ul>
+                <ul></ul><ul></ul><ul></ul>
+                <a href="#" class="buy-btn">Commencer</a>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 mt-4 mt-lg-0 aos-init" data-aos="fade-up" data-aos-delay="200">
+              <div class="box featured">
+                <h3>Plan Business</h3>
+                <h4><sup>$</sup>39<span>par mois</span></h4>
+                <ul>
+                  <p>Ce plan pourrait convenir aux petites et moyennes entreprises ayant des besoins plus avancés en matière de gestion de factures. Offrez des fonctionnalités supplémentaires par rapport au plan gratuit, comme la possibilité de personnaliser davantage les factures, de suivre les paiements, etc.
+                </p>
+                </ul><ul></ul>
+                <a href="#" class="buy-btn">Commencer</a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 mt-4 mt-lg-0 aos-init" data-aos="fade-up" data-aos-delay="300">
+              <div class="box">
+                <h3>Plan Développeur</h3>
+                <h4><sup>$</sup>69<span>par mois</span></h4>
+                <ul>
+                    <p>Ce plan s'adresse aux entreprises plus grandes ou à ceux qui ont des besoins plus complexes. Il pourrait inclure des fonctionnalités avancées telles que l'intégration API, la gestion de plusieurs entités commerciales, etc.</p>
+                </ul><ul></ul><ul></ul>
+                <a href="#" class="buy-btn">Commencer</a>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Pricing Section -->
+
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq section-bg">
+        <div class="container aos-init" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>QUESTIONS FRÉQUEMMENT POSÉES</h2>
+            Trouvez les réponses à vos questions fréquemment posées sur notre service de gestion de factures.</p>
+          </div>
+  
+          <div class="faq-list">
+            <ul>
+              <li data-aos="fade-up" data-aos-delay="100" class="aos-init">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Est-ce que votre application web de gestion de factures est adaptée à la taille de mon entreprise ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                  <p>
+                    Oui, notre application est conçue pour s'adapter aux besoins des petites, moyennes et grandes entreprises. Vous pouvez personnaliser les fonctionnalités en fonction de la taille de votre entreprise.                  </p>
+                </div>
+              </li>
+  
+              <li data-aos="fade-up" data-aos-delay="200" class="aos-init">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Comment se fait l'intégration de votre application avec nos systèmes existants ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Notre application peut être intégrée avec d'autres systèmes grâce à des API (interfaces de programmation) ou à des fonctionnalités d'import/export de données. Nous pouvons également discuter des besoins spécifiques de votre entreprise.                  </p>
+                </div>
+              </li>
+  
+              <li data-aos="fade-up" data-aos-delay="300" class="aos-init">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Est-ce que votre application web offre des options de personnalisation pour les factures ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Oui, notre application permet la personnalisation des factures avec votre logo, vos couleurs d'entreprise et d'autres détails personnalisés pour refléter votre image de marque.                  </p>
+                </div>
+              </li>
+  
+              <li data-aos="fade-up" data-aos-delay="400" class="aos-init">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Comment se fait la sécurisation des données dans votre application ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    La sécurité des données est une priorité pour nous. Nous utilisons des protocoles de cryptage avancés pour protéger vos données et avons mis en place des mesures de sécurité pour prévenir les accès non autorisés.                  </p>
+                </div>
+              </li>
+  
+              <li data-aos="fade-up" data-aos-delay="500" class="aos-init">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Comment puis-je obtenir une démonstration de votre application avant de prendre une décision d'achat ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Nous serions ravis de vous fournir une démonstration de notre application pour vous montrer ses fonctionnalités et répondre à vos questions spécifiques. Contactez notre équipe pour organiser une démo.                  </p>
+                </div>
+              </li>
+  
+            </ul>
+          </div>
+  
+        </div>
+      </section><!-- End Frequently Asked Questions Section -->
+  
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container aos-init" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>Êtes-vous prêt à démarrer votre projet? Donnez-nous un appel ou envoyez-nous quelques lignes.</p>
+        </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info">
+  
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>MYBILL@gmail.com</p>
+                </div>
+  
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Téléphone:</h4>
+                  <p>+212-514885920 /+212-598550431</p>
+                </div>
+  
+                <ul></ul><ul></ul>
+            </div>
+  
+            </div>
+  
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" id="name" required="">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email" required="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject" required="">
+                </div>
+                <div class="form-group">
+                  <label for="name">Message</label>
+                  <textarea class="form-control" name="message" rows="10" required=""></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+  
+    </main><!-- End #main -->
+  
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+  
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>MYBILL</h3>
+              <p>
+                Zenith, Casablanca <br>
+                Morocco <br><br>
+                <strong>Phone 1:</strong> +212-514885920<br>
+                <strong>Phone 2:</strong> +212-598550431<br>
+
+                <strong>Email:</strong> MYBILL2023@gmail.com <br>
+              </p>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+  
+  
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Développée par</h4>
+                <h4>Israe KHOUI</h4>
+                <span>Elève Ingénieur en Développement Informatique</span>
+                <div class="social-links mt-3">
+                    <a href="https://www.facebook.com/profile.php?id=100009696700309" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/israe11khoui/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="https://ma.linkedin.com/in/israe-khoui-0285b3236" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container footer-bottom clearfix">
+        <div class="copyright">
+          © Copyright <strong><span>MYBILL</span></strong>. 2023 All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+  
+    
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    <!-- Vendor JS Files -->
+    <script src="static/assets/vendor/aos/aos.js"></script>
+    <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  
+    <!-- Template Main JS File -->
+    <script src="static/assets/js/main.js"></script>
+  
+  </body></html>
+
+
+
